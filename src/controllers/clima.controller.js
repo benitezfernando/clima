@@ -16,7 +16,15 @@ const getClimaIp = async (data) => {
 };
 
 const getClimaIpExtended = async (data) => {
- //TODO
+  try {
+    res = await axios(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${data.latitude}&lon=${data.longitude}&appid=${apiKey}`
+    );
+    return res.data;
+  } catch (error) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
 };
 
 const getClimaCity = async (city) => {
@@ -29,11 +37,18 @@ const getClimaCity = async (city) => {
     fastify.log.error(err);
     process.exit(1);
   }
-  
 };
 
 const getClimaCityExtended = async (city) => {
-  //TODO
+  try {
+    res = await axios(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
+    );
+    return res.data;
+  } catch (error) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
 };
 
 const getClima = async (request, reply) => {
