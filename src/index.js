@@ -1,7 +1,6 @@
 const fastify = require("fastify")({ logger: true });
 const climaRoutes = require("./routes/clima.route");
 
-
 climaRoutes.forEach((route) => {
   fastify.route(route);
 });

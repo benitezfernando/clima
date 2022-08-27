@@ -4,6 +4,11 @@ const params = {
   type: ['object', 'null'],
   properties: {
     city: { type: "string" },
+    city: { type: "string" },
+    city: { type: "string" },
+    city: { type: "string" },
+    city: { type: "string" },
+
   },
 };
 
