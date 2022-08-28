@@ -1,14 +1,13 @@
 const climaController = require("../controllers/clima.controller");
 
 const params = {
-  type: ['object', 'null'],
+  type: ["object", "null"],
   properties: {
     city: { type: "string" },
     city: { type: "string" },
     city: { type: "string" },
     city: { type: "string" },
     city: { type: "string" },
-
   },
 };
 
