@@ -6,7 +6,7 @@ async function routes(fastify) {
     {
       schema: {
         description: "Get clima local",
-        tags: ["location"],
+        tags: ["weather"],
       },
     },
     climaController.getClima
@@ -16,8 +16,8 @@ async function routes(fastify) {
     "current",
     {
       schema: {
-        description: "Get current clima",
-        tags: ["current"],
+        description: "Get clima local or city parameter optional",
+        tags: ["weather"],
         params: {
           type: ["object", "null"],
           properties: {
@@ -33,8 +33,8 @@ async function routes(fastify) {
     "forecast",
     {
       schema: {
-        description: "Get extended clima",
-        tags: ["forecast"],
+        description: "Returns extended weather from the local city and the five optional parameters.",
+        tags: ["weather"],
         params: {
           type: ["object", "null"],
           properties: {
