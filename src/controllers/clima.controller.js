@@ -5,7 +5,7 @@ const _ = require("lodash");
 const getClimaIp = async (data) => {
   try {
     res = await axios(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${data.latitude}&lon=${data.longitude}&appid=${process.env.API_WEATHER_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${data.latitude}&lon=${data.longitude}&appid=7245ef545421cec34099ff6394ee927c`
     );
     return res.data;
   } catch (error) {
@@ -17,7 +17,7 @@ const getClimaIp = async (data) => {
 const getClimaCity = async (city) => {
   try {
     res = await axios(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_WEATHER_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7245ef545421cec34099ff6394ee927c`
     );
     return res.data;
   } catch (error) {
@@ -31,7 +31,7 @@ const getClima = async (request, reply) => {
     reply.send(await getClimaCity(request.query.city));
   } else {
     res = await axios(
-      `https://api.maptiler.com/geolocation/ip.json?key=${process.env.API_GEO_KEY}`
+      `https://api.maptiler.com/geolocation/ip.json?key=mkY10haMivU40c8lo3W2`
     );
 
     reply.send(await getClimaIp(res.data));
@@ -48,18 +48,18 @@ const getClimaExtended = async (request, reply) => {
       const weather = await Promise.all(
         _.map(cities, async (city) => {
           res = await axios(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.API_WEATHER_KEY}`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=7245ef545421cec34099ff6394ee927c`
           );
           return res.data;
         })
       );
 
       location = await axios(
-        `https://api.maptiler.com/geolocation/ip.json?key=${process.env.API_GEO_KEY}`
+        `https://api.maptiler.com/geolocation/ip.json?key=mkY10haMivU40c8lo3W2`
       );
 
       res = await axios(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.data.latitude}&lon=${location.data.longitude}&appid=${process.env.API_WEATHER_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.data.latitude}&lon=${location.data.longitude}&appid=7245ef545421cec34099ff6394ee927c`
       );
 
       weather.unshift(res.data);
@@ -67,11 +67,11 @@ const getClimaExtended = async (request, reply) => {
       reply.send(weather);
     } else {
       location = await axios(
-        `https://api.maptiler.com/geolocation/ip.json?key=${process.env.API_GEO_KEY}`
+        `https://api.maptiler.com/geolocation/ip.json?key=mkY10haMivU40c8lo3W2`
       );
 
       res = await axios(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.data.latitude}&lon=${location.data.longitude}&appid=${process.env.API_WEATHER_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.data.latitude}&lon=${location.data.longitude}&appid=7245ef545421cec34099ff6394ee927c`
       );
 
       reply.send(res.data);
