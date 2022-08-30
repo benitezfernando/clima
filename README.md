@@ -3,18 +3,18 @@
 Get weater with Fastify.
 
 - Fastify
-- Swagger documentation with Fastify plugin
+- Swagger documentation with fastify-swagger
 - Jest for testing.
 
 ## For start in local
 
 ```
-cp .env.example .env
+.env.example
 
 npm install
 npm run dev
 
-# Run test with Tap
+# Run test with Jest
 npm run test
 ```
 
