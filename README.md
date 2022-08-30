@@ -4,7 +4,7 @@ Get weater with Fastify.
 
 - Fastify
 - Swagger documentation with Fastify plugin
-- Tap for testing.
+- Jest for testing.
 
 ## For start in local
 
