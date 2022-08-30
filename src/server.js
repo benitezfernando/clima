@@ -15,6 +15,8 @@ fastify.register(require('@fastify/swagger'), {
   ]
 })
 
+fastify.register(require('fastify-healthcheck'))
+
 
 fastify.register(require("./routes/routes"), { prefix: "/v1/" });
 
